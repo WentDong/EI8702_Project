@@ -1,0 +1,15 @@
+{
+    "ohos": {
+        "board": "hi3861",
+        "kernel": "risc-v",
+        "os": "1.0.0"
+    },
+    "name": "bearpi_hm_nano",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "scons",
+        "clean": "scons -c",
+        "upload": "node %UPLOAD_SCRIPT%",
+        "upload&debug": "node %UPLOAD_SCRIPT% debug"
+    }
+}
