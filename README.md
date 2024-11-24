@@ -1,2 +1,5 @@
-# EI8702
-Group 3 Course Project of EI8702, 2024 Fall, SJTU
+# EI8702_Project
+## 智慧家居
+Course Project of Group 3, EI8702, 2024 Fall, SJTU
+
+Coworkers: Zhenyu Ning, Xu Wang, Wentao Dong, Zheng Wang, Jiaxuan Chen
