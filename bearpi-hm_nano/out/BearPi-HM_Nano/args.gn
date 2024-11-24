@@ -1,3 +1,2 @@
 product = "BearPi-HM_Nano"
 ohos_build_type = "release"
-ohos_build_target = ""

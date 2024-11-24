@@ -37,9 +37,9 @@ typedef struct
 MSGQUEUE_OBJ_t msg;
 osMessageQueueId_t mid_MsgQueue; // message queue id
 
-#define CLIENT_ID "5fc7152fb4ec2202e99df7bf_2020111409_0_0_2020120205"
-#define USERNAME "5fc7152fb4ec2202e99df7bf_2020111409"
-#define PASSWORD "9b501c0ce96e0d79a071703b870060d939e95715397c6cb5dee90a93a38dd288"
+#define CLIENT_ID "674137332ff1872637c0d469_Device_0_0_2024112410"
+#define USERNAME "674137332ff1872637c0d469_Device"
+#define PASSWORD "feba4de95508e2d7cf45f9ef5d440612c83e6329e4394eaf720c9d9d42aae0f4"
 
 typedef enum
 {
@@ -88,7 +88,7 @@ static void deal_report_msg(report_t *report)
     oc_mqtt_profile_kv_t motor;
 
     service.event_time = NULL;
-    service.service_id = "Agriculture";
+    service.service_id = "BasicData";
     service.service_property = &temperature;
     service.nxt = NULL;
 
@@ -162,7 +162,7 @@ static void deal_cmd_msg(cmd_t *cmd)
     {
         goto EXIT_CMDOBJ;
     }
-    if (0 == strcmp(cJSON_GetStringValue(obj_cmdname), "Agriculture_Control_light"))
+    if (0 == strcmp(cJSON_GetStringValue(obj_cmdname), "Control_Light"))
     {
         obj_paras = cJSON_GetObjectItem(obj_root, "paras");
         if (NULL == obj_paras)
@@ -189,7 +189,7 @@ static void deal_cmd_msg(cmd_t *cmd)
         }
         cmdret = 0;
     }
-    else if (0 == strcmp(cJSON_GetStringValue(obj_cmdname), "Agriculture_Control_Motor"))
+    else if (0 == strcmp(cJSON_GetStringValue(obj_cmdname), "Control_Motor"))
     {
         obj_paras = cJSON_GetObjectItem(obj_root, "Paras");
         if (NULL == obj_paras)
@@ -235,7 +235,7 @@ static int task_main_entry(void)
 {
     app_msg_t *app_msg;
 
-    uint32_t ret = WifiConnect("Hold", "0987654321");
+    uint32_t ret = WifiConnect("bearpi", "987654321");
 
     device_info_init(CLIENT_ID, USERNAME, PASSWORD);
     oc_mqtt_init();

@@ -33,8 +33,8 @@ rule copy
   command = cp -afd ${in} ${out}
   description = COPY ${in} ${out}
 
-build obj/applications/BearPi/BearPi-HM_Nano/sample/app.stamp: stamp ./libs/libbutton_example.a
-subninja obj/applications/BearPi/BearPi-HM_Nano/sample/B2_basic_button/button_example.ninja
+build obj/applications/BearPi/BearPi-HM_Nano/sample/app.stamp: stamp ./libs/liboc_mqtt.a
+subninja obj/applications/BearPi/BearPi-HM_Nano/sample/D6_iot_cloud_oc/oc_mqtt.ninja
 subninja obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite.ninja
 build obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp: stamp ./libs/libhilog_lite.a
 subninja obj/base/hiviewdfx/services/hiview_lite/hiview_lite.ninja
@@ -52,7 +52,7 @@ build obj/base/startup/frameworks/syspara_lite/token/token_notes.stamp: stamp
 subninja obj/base/startup/frameworks/syspara_lite/token/token_static.ninja
 subninja obj/base/startup/services/bootstrap_lite/source/bootstrap.ninja
 rule __build_lite_gen_rootfs___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
-  command = python ../../build/lite/gen_rootfs.py --path=../../out/BearPi-HM_Nano --board=hi3861v100 --kernel=liteos_m --compile_so=/bin/ --compile_bin=/bin/
+  command = python ../../build/lite/gen_rootfs.py --path=../../out/BearPi-HM_Nano --board=hi3861v100 --kernel=liteos_riscv --compile_so=/bin/ --compile_bin=/bin/
   description = ACTION //build/lite:gen_rootfs(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
   restat = 1
 
@@ -60,9 +60,7 @@ build gen/build/lite/gen_rootfs.log: __build_lite_gen_rootfs___build_lite_toolch
 
 build obj/build/lite/gen_rootfs.stamp: stamp gen/build/lite/gen_rootfs.log
 build obj/build/lite/ndk.stamp: stamp
-build obj/build/lite/ohos.stamp: stamp obj/applications/BearPi/BearPi-HM_Nano/sample/app.stamp obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp ./libs/libcommon_lite.a ./libs/libhiview_lite.a ./libs/libhilog_lite.a obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp ./libs/libbootstrap.a obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp obj/base/startup/frameworks/syspara_lite/token/token.stamp obj/foundation/communication/frameworks/wifi_lite/wifi.stamp obj/foundation/communication/services/softbus_lite/softbus.stamp obj/utils/native/lite/kv_store/kv_store.stamp obj/utils/native/lite/file/file.stamp obj/domains/iot/link/link.stamp obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp obj/test/xts/acts/acts.stamp obj/test/xts/tools/tools.stamp
-build obj/domains/iot/link/iot.stamp: stamp obj/domains/iot/link/link.stamp
-build obj/domains/iot/link/link.stamp: stamp
+build obj/build/lite/ohos.stamp: stamp obj/applications/BearPi/BearPi-HM_Nano/sample/app.stamp obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp ./libs/libcommon_lite.a ./libs/libhiview_lite.a ./libs/libhilog_lite.a obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp ./libs/libbootstrap.a obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp obj/base/startup/frameworks/syspara_lite/token/token.stamp obj/foundation/communication/frameworks/wifi_lite/wifi.stamp obj/foundation/communication/services/softbus_lite/softbus.stamp obj/utils/native/lite/kv_store/kv_store.stamp obj/utils/native/lite/file/file.stamp obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp obj/test/xts/acts/acts.stamp obj/test/xts/tools/tools.stamp
 build obj/foundation/communication/frameworks/wifi_lite/wifi.stamp: stamp ./libs/libwifiservice.a
 build obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp: stamp ./libs/libdiscovery.a
 build obj/foundation/communication/services/softbus_lite/softbus.stamp: stamp ./libs/libdiscovery.a ./libs/libauthmanager.a ./libs/libtrans_service.a
@@ -72,16 +70,15 @@ subninja obj/foundation/communication/services/softbus_lite/authmanager/authmana
 subninja obj/foundation/communication/services/softbus_lite/discovery/discovery.ninja
 subninja obj/foundation/communication/services/softbus_lite/trans_service/trans_service.ninja
 build obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp: stamp ./libs/libsamgr.a ./libs/libbroadcast.a
-build obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp: stamp ./libs/libbroadcast.a ./libs/libsamgr.a
+build obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp: stamp ./libs/libsamgr.a ./libs/libbroadcast.a
 subninja obj/foundation/distributedschedule/services/samgr_lite/communication/broadcast/broadcast.ninja
 subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/samgr.ninja
 subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/adapter/samgr_adapter.ninja
 subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/source/samgr_source.ninja
-build obj/kernel/liteos_m/kal/kal.stamp: stamp ./libs/libcmsis.a ./libs/libposix.a
-subninja obj/kernel/liteos_m/kal/cmsis/cmsis.ninja
-subninja obj/kernel/liteos_m/kal/posix/posix.ninja
+subninja obj/kernel/liteos_m/components/cmsis/cmsis.ninja
+subninja obj/kernel/liteos_m/components/kal/kal.ninja
 rule __test_xdevice_xdevice___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
-  command = python ../../test/xts/tools/build/suite.py build_xdevice --project_dir /home/hi/ohos/gitee_code/bearpi-hm_nano/test/xdevice --output_dirs /home/hi/ohos/gitee_code/bearpi-hm_nano/out/BearPi-HM_Nano/suites/acts/tools,
+  command = python ../../test/xts/tools/build/suite.py build_xdevice --project_dir /home/bearpi/EI8702_Project/bearpi-hm_nano/test/xdevice --output_dirs /home/bearpi/EI8702_Project/bearpi-hm_nano/out/BearPi-HM_Nano/suites/acts/tools,
   description = ACTION //test/xdevice:xdevice(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
   restat = 1
 
@@ -89,7 +86,7 @@ build suites/acts/tools: __test_xdevice_xdevice___build_lite_toolchain_linux_x86
 
 build obj/test/xdevice/xdevice.stamp: stamp suites/acts/tools
 rule __test_xts_acts_acts___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
-  command = python ../../test/xts/tools/build/suite.py archive_suite --suite_path /home/hi/ohos/gitee_code/bearpi-hm_nano/out/BearPi-HM_Nano/suites/acts --testcases_name testcases --prebuilts_resource , --build_enabled true
+  command = python ../../test/xts/tools/build/suite.py archive_suite --suite_path /home/bearpi/EI8702_Project/bearpi-hm_nano/out/BearPi-HM_Nano/suites/acts --testcases_name testcases --prebuilts_resource , --build_enabled true
   description = ACTION //test/xts/acts:acts(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
   restat = 1
 
@@ -116,7 +113,7 @@ rule __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_
 build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt: __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../build/lite/build_ext_components.py obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp obj/build/lite/ohos.stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
 
 build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp: stamp obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt
-build obj/vendor/hisi/hi3861/hi3861/sdk.stamp: stamp obj/kernel/liteos_m/kal/kal.stamp ./libs/libcjson_static.a ./libs/libpahomqtt_static.a
+build obj/vendor/hisi/hi3861/hi3861/sdk.stamp: stamp ./libs/libcmsis.a ./libs/libkal.a
 build obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp: stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
 subninja obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice.ninja
 build obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp: stamp ./libs/libwifiservice.a
