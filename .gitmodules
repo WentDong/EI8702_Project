@@ -1,0 +1,3 @@
+[submodule "bearpi-hm_nano"]
+	path = bearpi-hm_nano
+	url = https://gitee.com/bearpi/bearpi-hm_nano.git

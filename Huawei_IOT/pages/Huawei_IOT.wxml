@@ -1,0 +1,6 @@
+<!--pages/Huawei_IOT.wxml-->
+<text >提示信息：</text>
+<text>{{result}}</text>
+<button type="primary" bindtap="touchBtn_gettoken">获取token</button>
+<button type="default" bindtap="touchBtn_getshadow">获取设备影子</button>
+<button type="warn" bindtap="touchBtn_setCommand">设备命令下发</button>
