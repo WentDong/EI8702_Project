@@ -3411,7 +3411,7 @@ Discarded input sections
                 0x0000000000000000       0x4e ohos/libs/libcmsis.a(cmsis_liteos.o)
  .text.osThreadExit
                 0x0000000000000000       0x30 ohos/libs/libcmsis.a(cmsis_liteos.o)
- .rodata.__FUNCTION__.2999
+ .rodata.__FUNCTION__.2979
                 0x0000000000000000       0x10 ohos/libs/libcmsis.a(cmsis_liteos.o)
  .rodata.g_stLosVersion
                 0x0000000000000000        0x8 ohos/libs/libcmsis.a(cmsis_liteos.o)

@@ -14,44 +14,8 @@
 import("//build/lite/config/component/lite_component.gni")
 
 lite_component("app") {
-    features = [
-        #"A1_kernal_thread:thread_example",
-        #"A2_kernel_timer:timer_example",
-        #"A3_kernel_event:event_example",
-        #"A4_kernel_mutex:mutex_example",
-        #"A5_kernel_semaphore:semaphore_example",
-        #"A6_kernel_message:message_example",
-
-        #"B1_basic_led_blink:led_example",
-        #"B2_basic_button:button_example",
-        #"B3_basic_pwm_led:pwm_example",
-        #"B4_basic_adc:adc_example",
-        #"B5_basic_i2c_nfc:i2c_example",
-        #"B6_basic_uart:uart_example",
-        
-        #"C1_e53_sf1_mq2:e53_sf1_example",
-        #"C2_e53_ia1_temp_humi_pls:e53_ia1_example",
-        #"C3_e53_sc1_pls:e53_sc1_example",
-        #"C4_e53_sc2_axis:e53_sc2_example",
-        #"C5_e53_is1_infrared:e53_is1_example",
-
-        #"D1_iot_wifi_ap:wifi_ap",
-        #"D2_iot_wifi_sta_connect:wifi_sta_connect",        
-        #"D3_iot_udp_client:udp_client",
-        #"D4_iot_tcp_server:tcp_server",
-        #"D5_iot_mqtt:iot_mqtt",        
+    features = [  
         "D6_iot_cloud_oc:oc_mqtt",
-        #"D7_iot_cloud_onenet:onenet_mqtt",
-        #"D8_iot_cloud_oc_smoke:cloud_oc_smoke",
-        #"D9_iot_cloud_oc_light:cloud_oc_light",
-        #"D10_iot_cloud_oc_manhole_cover:cloud_oc_manhole_cover",
-        #"D11_iot_cloud_oc_infrared:cloud_oc_infrared",
-        #"D12_iot_cloud_oc_agriculture:cloud_oc_agriculture",
-        #"D13_iot_cloud_oc_gps:cloud_oc_gps",
-
-        #"Zx_Developer:zx_develop_sample"  ##不参与构建，为开发者贡献演示结构，其中Zx为 Z1，Z2...Z100
-        #"Z1_hi3861_uart_ylc:uart_hi3861",
-        #"Z2_hi3861_flash_ylc:flash_example",
     ]
 }
 
