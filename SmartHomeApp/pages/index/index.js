@@ -131,8 +131,20 @@ Page({
               const temp = JSON.stringify(res.data.shadow[0].reported.properties.Temperature);
               const humi = JSON.stringify(res.data.shadow[0].reported.properties.Humidity);
               const light = JSON.stringify(res.data.shadow[0].reported.properties.Luminance);
-              const lightstatus = JSON.stringify(res.data.shadow[0].reported.properties.LightStatus);
-              const motorstatus = JSON.stringify(res.data.shadow[0].reported.properties.MotorStatus);
+              var lightstatus_tmp = JSON.stringify(res.data.shadow[0].reported.properties.LightStatus);
+              if (lightstatus_tmp=='"OFF"'){
+                lightstatus_tmp = "关";
+              } else{
+                lightstatus_tmp = "开";
+              }
+              const lightstatus = lightstatus_tmp;
+              var motorstatus_tmp = JSON.stringify(res.data.shadow[0].reported.properties.MotorStatus);
+              if (motorstatus_tmp=='"OFF"'){
+                motorstatus_tmp = "关";
+              } else{
+                motorstatus_tmp = "开"
+              }
+              const motorstatus = motorstatus_tmp;
               that.setData({
                 temp:temp,
                 humi:humi,
