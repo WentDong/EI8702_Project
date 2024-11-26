@@ -1,0 +1,76 @@
+<!-- <view class="userinfo"> 
+  <image class="img" src="../images/temp.png"></image>
+  <text >温度{{temp}} ℃</text>
+</view>
+<view class="userinfo"> 
+  <image class="img" src="../images/humi.png"></image>
+  <text >湿度{{humi}} %RH</text>
+</view>
+<view class="userinfo"> 
+  <image class="img" src="../images/light.png"></image>
+  <text >光照度{{light}} lx</text>
+</view> -->
+
+<view class="container">
+  <view class="grid">
+    <view class="grid-item">
+      <image class="img" src="../images/temp.png"></image>
+      <text >温度：{{temp}} ℃</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/humi.png"></image>
+      <text >湿度：{{humi}} %RH</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/sun.png"></image>
+      <text >光照度：{{light}} lx</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/light.png"></image>
+      <text >灯泡状态：{{lightstatus}}</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/fan.png"></image>
+      <text >风扇状态：{{motorstatus}}</text>
+    </view>
+    <view class="grid-item">
+    </view>
+  </view>
+</view>
+
+<!-- <view class="container">
+  <view class="grid">
+    <view class="grid-item">
+      <image class="img" src="../images/temp.png"></image>
+      <text >温度{{temp}} ℃</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/humi.png"></image>
+      <text >湿度{{humi}} %RH</text>
+    </view>
+    <view class="grid-item">
+      <image class="img" src="../images/light.png"></image>
+      <text >光照度{{light}} lx</text>
+    </view>
+    <view class="grid-item">
+      <text > a</text>
+    </view>
+  </view>
+</view> -->
+
+<!-- <button type="default" style="margin-top:40px" bindtap="touchBtn_combine">{{bttn_env}}</button> -->
+<view class="container-bttn">
+  <button class="custom-button {{buttonClass}}" bindtap="touchBtn_combine">{{bttn_env}}</button>
+</view>
+<!-- <button type="default" style="margin-top:20px" bindtap="touchBtn_getshadow">获取设备影子</button> -->
+
+<view class="btn"> 
+<button type="primary" style="margin-top:20px" bindtap="On_Light">开灯</button>
+<button type="warn"  style="margin-top:20px" bindtap="Off_Light">关灯</button>
+</view>
+
+
+<view class="btn"> 
+<button type="primary" style="margin-top:20px" bindtap="On_Motor">开风扇</button>
+<button type="warn"  style="margin-top:20px" bindtap="Off_Motor">关风扇</button>
+</view>

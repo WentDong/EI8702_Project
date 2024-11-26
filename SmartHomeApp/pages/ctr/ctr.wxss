@@ -1,0 +1,36 @@
+/* pages/ctr/ctr.wxss */
+
+/* log.wxss */
+.log-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+}
+
+.scroll-view {
+  width: 100%;
+  /* 根据需要调整scroll-view的高度 */
+  height: 100%;
+  overflow-y: scroll; /* 允许垂直滚动 */
+}
+
+
+.date {
+  color: black;
+  font-weight: bold;
+}
+
+.log-item {
+  color: #969494;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.data-item {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5; /* 日志项之间的分隔线 */
+  background-color: #c0e1f7; /* 日志项的背景色 */
+  margin-bottom: 5px; /* 日志项之间的间距 */
+}

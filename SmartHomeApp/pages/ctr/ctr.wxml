@@ -1,0 +1,26 @@
+<!--pages/ctr/ctr.wxml-->
+<!-- <text>pages/ctr/ctr.wxml</text> -->
+
+<!-- log.wxml -->
+<view class="log-container">
+  <scroll-view 
+    class="scroll-view" 
+    scroll-y="true" 
+    style="height: 100%"
+    bindscrolltolower="onReachBottom">
+    <!-- 使用wx:for循环渲染messages数组 -->
+    <view class="data-item" wx:for="{{messages}}" wx:key="*this">
+      <text class="date">{{item.date}}</text>
+      <text class="date">\n</text>
+      <text class="log-item">温度：{{item.temp}}</text>
+      <text class="date">\n</text>
+      <text class="log-item">湿度：{{item.humi}}</text>
+      <text class="date">\n</text>
+      <text class="log-item">光照度：{{item.light}}</text>
+      <text class="date">\n</text>
+      <text class="log-item">灯泡状态：{{item.lightstatus}}</text>
+      <text class="date">\n</text>
+      <text class="log-item">风扇状态：{{item.motorstatus}}</text>
+    </view>
+  </scroll-view>
+</view>

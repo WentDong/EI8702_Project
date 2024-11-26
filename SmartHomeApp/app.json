@@ -1,0 +1,33 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/ctr/ctr"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "智慧家居终端",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "控制台",
+                "iconPath": "/pages/images/kongzhitai1.png",
+                "selectedIconPath": "/pages/images/kongzhitai2.png"
+            },
+            {
+                "pagePath": "pages/ctr/ctr",
+                "text": "日志",
+                "iconPath": "/pages/images/logs1.png",
+                "selectedIconPath": "/pages/images/logs2.png"
+            }
+        ]
+    },
+  
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}
