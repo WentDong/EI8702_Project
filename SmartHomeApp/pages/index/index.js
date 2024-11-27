@@ -152,7 +152,11 @@ Page({
                 lightstatus:lightstatus,
                 motorstatus:motorstatus,
               })
+              if (app.globalData.messages.length >= 500)
+                app.globalData.messages.pop();
+              // console.log(app.globalData.messages.length);
               app.globalData.messages.push({"date":date, "temp":temp, "humi":humi, "light":light, "lightstatus":lightstatus, "motorstatus":motorstatus});
+              
               app.globalData.flag_updated_message = true;
           },
           fail:function(){
